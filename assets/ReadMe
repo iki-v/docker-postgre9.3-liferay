@@ -1,0 +1,25 @@
+1. Build docker container from Dockerfile
+$ docker build -t postgre-liferay .
+
+2. View created image
+$ docker images
+   Remove images
+$ docker rmi <imageId>
+
+3. Define docker container Job
+$ JOB=$(docker run -d -p 40022:22 -p 45432:5432 -p 8080:8080 --name postgre-liferay postgre-liferay)
+
+4. Start/Stop docker container
+$ docker start $JOB
+$ docker stop $JOB
+
+5. Connect SSH
+$ ssh root@localhost -p 40022
+$ pwd : admin
+
+### Build and Start
+docker build -t postgre-liferay-6.1.30 . && JOB=$(docker run -d -p 40022:22 -p 45432:5432 -p 48080:8080 --name postgre-liferay-6.1.30 postgre-liferay-6.1.30) && docker start $JOB
+docker build -t postgre-liferay-6.2sp12 . && JOB=$(docker run -d -p 40023:22 -p 45433:5432 -p 48081:8080 --name postgre-liferay-6.2sp12 postgre-liferay-6.2sp12) && docker start $JOB
+
+### Clean All
+docker stop postgre-liferay && docker rm postgre-liferay && docker rmi postgre-liferay
