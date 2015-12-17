@@ -29,9 +29,11 @@ apt-get install -y unzip &&
 unzip /assets/packages/liferay* -d /opt/ &&
 ln -s /opt/liferay* /opt/liferay &&
 ln -s /opt/liferay/jboss* /opt/liferay/jboss &&
-cp /assets/conf/liferay/portal-ext.properties /opt/liferay/ &&
+
+# Configure Liferay
 mkdir /opt/liferay/deploy && cp /assets/packages/license* /opt/liferay/deploy/ &&
-cp -R /assets/conf/postgresql /opt/liferay/jboss/modules/org/ &&
+cp -R /assets/conf/liferay/portal-ext.properties /opt/liferay/ &&
+cp -R /assets/conf/liferay/jboss/* /opt/liferay/jboss/ &&
 
 # Exit
 exit $?
