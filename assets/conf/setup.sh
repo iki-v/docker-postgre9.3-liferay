@@ -36,5 +36,8 @@ cp -R /assets/conf/liferay/portal-ext.properties /opt/liferay/ &&
 cp -R /assets/conf/liferay/data/* opt/liferay/data/ &&
 cp -R /assets/conf/liferay/jboss/* /opt/liferay/jboss/ &&
 
+# Cleaning /assets/packages
+rm -rf /assets/packages &&
+
 # Exit
 exit $?
