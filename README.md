@@ -20,12 +20,14 @@ Before running the docker builder, you need to provide following packages in ./a
 
 * Liferay license .xml file : license<...>.xml
 
+Added to those packages, you may need to create a "/opt/liferay/docker" folder to be able to link a host deploy folder to the one in the container (used in the docker run command below)
+
 ## Build & Run & Start
 
 From project root folder :
 
     docker build -t postgre-liferay-6.x.x .
-    JOB=$(docker run -d -p 40022:22 -p 45432:5432 -p 48080:8080 --name postgre-liferay-6.x.x postgre-liferay-6.x.x)
+    JOB=$(docker run -d -v /opt/liferay/docker:/opt/liferay/deploy -p 40022:22 -p 45432:5432 -p 48080:8080 -p 48787:8787 --name postgre-liferay-6.x.x postgre-liferay-6.x.x)
     docker start $JOB
 
 Note :
@@ -34,7 +36,8 @@ Note :
     Arbitrary port mapping :
         port 22 is mapped to 40022
         port 5432 is mapped to 45432
-        port 8080 is mapped to 48080   
+        port 8080 is mapped to 48080
+        port 8787 is mapped to 48787   
 
 ## Accounts :
 
