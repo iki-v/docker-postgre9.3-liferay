@@ -1,4 +1,4 @@
 Requirements :
 - Add jdk archive version 7.* named jdk*.tar.gz
 - Add Liferay archive bundled with jboss named liferay*.zip
-- Add Liferay licese*.xml file
+- Add Liferay license*.xml file

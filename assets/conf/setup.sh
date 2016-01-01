@@ -3,6 +3,9 @@
 # General Updates
 apt-get update
 
+# Install utils
+apt-get install -y vim nano emacs
+
 # Install OpenSSH
 apt-get install -y openssh-server &&
 mkdir /var/run/sshd &&

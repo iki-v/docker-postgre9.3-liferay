@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.1
+FROM ubuntu:14.04.3
 MAINTAINER Ivan K.
 
 ADD assets /assets
@@ -35,6 +35,7 @@ USER root
 EXPOSE 22
 EXPOSE 5432
 EXPOSE 8080
+EXPOSE 8787
 
 # supervisor installation &&
 # create directory for child images to store configuration in
